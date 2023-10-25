@@ -1,13 +1,9 @@
-FROM  python:3.10
+FROM python:3.9
 
-# Set environment variables
-ENV PYTHONDONTWRITEBYTECODE 1
-ENV PYTHONUNBUFFERED 1
+WORKDIR /usr/src/app
 
-# Set work directory
-WORKDIR /code
-
-# Install dependencies
-COPY requirements.txt /code/
-
-RUN pip install -r requirements.txt 
+COPY requirements.txt ./
+RUN pip install -r requirements.txt
+COPY . .
+EXPOSE 8000
+CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
