@@ -7,7 +7,7 @@ on:
         branches: [ master ]
 jobs:
     run_django_tests:
-        name: Install requirements
+        name: Test Post and User models
         runs-on: ubuntu-latest
         steps:
             - name: Update
